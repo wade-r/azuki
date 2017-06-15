@@ -1,8 +1,8 @@
-package com.ireul.dumb.expressions;
+package com.ireul.azuki.expressions;
 
-import com.ireul.dumb.DumbException;
-import com.ireul.dumb.expressions.base.CombinationExpression;
-import com.ireul.dumb.expressions.base.Expression;
+import com.ireul.azuki.AzukiException;
+import com.ireul.azuki.expressions.base.CombinationExpression;
+import com.ireul.azuki.expressions.base.Expression;
 
 import java.util.Map;
 
@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public class NoneExpression extends CombinationExpression {
 
-    public NoneExpression(Object object) throws DumbException {
+    public NoneExpression(Object object) throws AzukiException {
         super(object);
     }
 

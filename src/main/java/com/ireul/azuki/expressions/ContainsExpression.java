@@ -1,16 +1,16 @@
-package com.ireul.dumb.expressions;
+package com.ireul.azuki.expressions;
 
-import com.ireul.dumb.DumbException;
-import com.ireul.dumb.expressions.base.EvaluationExpression;
+import com.ireul.azuki.AzukiException;
+import com.ireul.azuki.expressions.base.EvaluationExpression;
 
 import java.util.Map;
 
 /**
  * @author Ryan Wade
  */
-public class EqualsIgnoreCaseExpression extends EvaluationExpression {
+public class ContainsExpression extends EvaluationExpression {
 
-    public EqualsIgnoreCaseExpression(Object object) throws DumbException {
+    public ContainsExpression(Object object) throws AzukiException {
         super(object);
     }
 
@@ -18,7 +18,7 @@ public class EqualsIgnoreCaseExpression extends EvaluationExpression {
     public boolean validate(Map<String, String> map) {
         for (Map.Entry<String, String> entry : getValues().entrySet()) {
             String value = map.get(entry.getKey());
-            if (value == null || !value.equalsIgnoreCase(entry.getValue())) {
+            if (value == null || !value.contains(entry.getValue())) {
                 return false;
             }
         }

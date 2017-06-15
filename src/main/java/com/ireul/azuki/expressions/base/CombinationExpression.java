@@ -1,7 +1,7 @@
-package com.ireul.dumb.expressions.base;
+package com.ireul.azuki.expressions.base;
 
-import com.ireul.dumb.Dumb;
-import com.ireul.dumb.DumbException;
+import com.ireul.azuki.Azuki;
+import com.ireul.azuki.AzukiException;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,16 +19,16 @@ public abstract class CombinationExpression extends Expression {
     }
 
     @SuppressWarnings("unchecked")
-    public CombinationExpression(Object object) throws DumbException {
+    public CombinationExpression(Object object) throws AzukiException {
         if (object == null) {
             this.expressions = Collections.emptyList();
         } else if (object instanceof List) {
             this.expressions = new ArrayList<>();
             for (Object o : (List<?>) object) {
-                this.expressions.add(Dumb.build(o));
+                this.expressions.add(Azuki.build(o));
             }
         } else {
-            throw new DumbException(getClass().getName() + " must be constructed with a List object");
+            throw new AzukiException(getClass().getName() + " must be constructed with a List object");
         }
     }
 

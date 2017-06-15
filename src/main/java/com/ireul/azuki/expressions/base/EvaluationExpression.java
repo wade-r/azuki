@@ -1,6 +1,6 @@
-package com.ireul.dumb.expressions.base;
+package com.ireul.azuki.expressions.base;
 
-import com.ireul.dumb.DumbException;
+import com.ireul.azuki.AzukiException;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -20,22 +20,22 @@ public abstract class EvaluationExpression extends Expression {
     }
 
     @SuppressWarnings("unchecked")
-    public EvaluationExpression(Object object) throws DumbException {
+    public EvaluationExpression(Object object) throws AzukiException {
         if (object == null) {
             this.values = Collections.emptyMap();
         } else if (object instanceof Map) {
             this.values = new HashMap<>();
             for (Map.Entry entry : ((Map<?, ?>) object).entrySet()) {
                 if (!(entry.getKey() instanceof String)) {
-                    throw new DumbException("key must be string");
+                    throw new AzukiException("key must be string");
                 }
                 if (!(entry.getValue() instanceof String)) {
-                    throw new DumbException("value must be string");
+                    throw new AzukiException("value must be string");
                 }
                 this.values.put((String) entry.getKey(), (String) entry.getValue());
             }
         } else {
-            throw new DumbException(getClass().getName() + " must be constructed with a Map<String,String> object");
+            throw new AzukiException(getClass().getName() + " must be constructed with a Map<String,String> object");
         }
     }
 

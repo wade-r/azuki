@@ -1,7 +1,7 @@
-package com.ireul.dumb.expressions;
+package com.ireul.azuki.expressions;
 
-import com.ireul.dumb.DumbException;
-import com.ireul.dumb.expressions.base.WrapperExpression;
+import com.ireul.azuki.AzukiException;
+import com.ireul.azuki.expressions.base.WrapperExpression;
 
 import java.util.Map;
 
@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public class NotExpression extends WrapperExpression {
 
-    public NotExpression(Object object) throws DumbException {
+    public NotExpression(Object object) throws AzukiException {
         super(object);
     }
 

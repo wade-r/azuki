@@ -1,5 +1,5 @@
-# dumb
-Dumb is a simple Map evaluation tool
+# Azuki
+Azuki is a simple Map evaluation tool
 
 # Supported Expressions
 

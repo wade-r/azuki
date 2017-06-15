@@ -1,4 +1,4 @@
-package com.ireul.dumb.expressions.base;
+package com.ireul.azuki.expressions.base;
 
 import java.util.Map;
 

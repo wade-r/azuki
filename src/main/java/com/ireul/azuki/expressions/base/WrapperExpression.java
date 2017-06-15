@@ -1,7 +1,7 @@
-package com.ireul.dumb.expressions.base;
+package com.ireul.azuki.expressions.base;
 
-import com.ireul.dumb.Dumb;
-import com.ireul.dumb.DumbException;
+import com.ireul.azuki.Azuki;
+import com.ireul.azuki.AzukiException;
 
 import java.util.Map;
 
@@ -22,13 +22,13 @@ public abstract class WrapperExpression extends Expression {
         this.expression = expression;
     }
 
-    public WrapperExpression(Object object) throws DumbException {
+    public WrapperExpression(Object object) throws AzukiException {
         if (object == null) {
             this.expression = null;
         } else if (object instanceof Map) {
-            this.expression = Dumb.build(object);
+            this.expression = Azuki.build(object);
         } else {
-            throw new DumbException(getClass() + " must be constructed with a Map");
+            throw new AzukiException(getClass() + " must be constructed with a Map");
         }
     }
 
