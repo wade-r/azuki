@@ -6,7 +6,7 @@ import com.ireul.azuki.expressions.base.EvaluationExpression;
 import java.util.Map;
 
 /**
- * Created by ryan on 2017/6/16.
+ * @author Ryan Wade
  */
 public class StartsWithExpression extends EvaluationExpression {
 

@@ -16,7 +16,7 @@ public class NotExpression extends WrapperExpression {
 
     @Override
     public boolean validate(Map<String, String> map) {
-        return !(getExpression() != null && getExpression().validate(map));
+        return getExpression() == null || !getExpression().validate(map);
     }
 
 }
