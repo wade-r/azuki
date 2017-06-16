@@ -17,7 +17,7 @@ public class AzukiTest {
     public void testAzuki() throws AzukiException {
         for (int i = 0; i < 1; i++) {
             String filename = "test-" + (1000 + i) + ".yml";
-            System.out.print("running file: " + filename + " [");
+            System.out.print("Running file: " + filename + " [");
             InputStream inputStream = AzukiTest.class.getResourceAsStream("/" + filename);
             TestModel model = new Yaml().loadAs(inputStream, TestModel.class);
             Expression expression = Azuki.build(model.getMatch());

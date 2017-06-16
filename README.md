@@ -1,4 +1,7 @@
 # Azuki
+
+[![Build Status](https://travis-ci.org/wade-r/azuki.svg?branch=master)](https://travis-ci.org/wade-r/azuki)
+
 Azuki is a simple Map evaluation tool
 
 # Example
