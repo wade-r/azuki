@@ -4,7 +4,7 @@
 
     <groupId>com.ireul.azuki</groupId>
     <artifactId>azuki</artifactId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -30,7 +30,7 @@
     <scm>
         <connection>scm:git:https://github.com/wade-r/azuki.git</connection>
         <url>https://github.com/wade-r/azuki</url>
-        <tag>v1.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
 
