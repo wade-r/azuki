@@ -1,0 +1,26 @@
+# All
+match:
+  all:
+    - exists:
+        key1: true
+    - exists:
+        key2: true
+    - exists:
+        key3: false
+values:
+  - value:
+      key1: hello
+      key2: hello
+    result: true
+  - value:
+      key1: hello
+    result: false
+  - value:
+      key2: hello
+    result: false
+  - value:
+      key1: hello
+      key2: hello
+      key3: hello
+    result: false
+

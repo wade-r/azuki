@@ -1,0 +1,29 @@
+# EndsWith
+match:
+  endsWith:
+    key1: hello
+    key2: world
+values:
+  - value:
+      key1: hello
+    result: false
+  - value:
+      key2: world
+    result: false
+  - value:
+      key1: hello
+      key2: world
+    result: true
+  - value:
+      key1: helloyes
+      key2: nworld
+    result: false
+  - value:
+      key1: Worldhello
+      key2: helloworld
+    result: true
+  - value:
+      key1: WorldHello
+      key2: HelloWorld
+    result: false
+

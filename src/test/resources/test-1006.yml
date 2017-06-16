@@ -1,0 +1,29 @@
+# Contains
+match:
+  contains:
+    key1: hello
+    key2: world
+values:
+  - value:
+      key1: hello
+    result: false
+  - value:
+      key2: world
+    result: false
+  - value:
+      key1: hello
+      key2: world
+    result: true
+  - value:
+      key1: hEllo
+      key2: world
+    result: false
+  - value:
+      key1: helloo
+      key2: asworld
+    result: true
+  - value:
+      key1: hel
+      key2: wo
+    result: false
+

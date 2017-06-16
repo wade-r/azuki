@@ -1,0 +1,29 @@
+# ContainsIgnoreCase
+match:
+  containsIgnoreCase:
+    key1: hello
+    key2: world
+values:
+  - value:
+      key1: hello
+    result: false
+  - value:
+      key2: world
+    result: false
+  - value:
+      key1: hello
+      key2: world
+    result: true
+  - value:
+      key1: hEllo
+      key2: world
+    result: true
+  - value:
+      key1: HeLloo
+      key2: asWorld
+    result: true
+  - value:
+      key1: hel
+      key2: wo
+    result: false
+

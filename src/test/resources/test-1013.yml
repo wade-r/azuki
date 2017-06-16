@@ -1,0 +1,26 @@
+# Not
+match:
+  not:
+    pattern:
+      key1: h[el]+lo
+      key2: w[or]+ld
+values:
+  - value:
+      key1: hello
+    result: true
+  - value:
+      key2: world
+    result: true
+  - value:
+      key1: hello
+      key2: world
+    result: false
+  - value:
+      key1: hwlld
+      key2: werld
+    result: true
+  - value:
+      key1: heelo
+      key2: woold
+    result: false
+

@@ -30,7 +30,7 @@ public abstract class EvaluationExpression extends Expression {
                     throw new AzukiException("key must be string");
                 }
                 if (!(entry.getValue() instanceof String)) {
-                    throw new AzukiException("value must be string");
+                    entry.setValue(entry.getValue().toString());
                 }
                 this.values.put((String) entry.getKey(), (String) entry.getValue());
             }

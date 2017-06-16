@@ -12,7 +12,7 @@ public class TestModel {
 
         private Map<String, String> value;
 
-        private int result;
+        private boolean result;
 
         public Map<String, String> getValue() {
             return value;
@@ -22,11 +22,11 @@ public class TestModel {
             this.value = value;
         }
 
-        public int getResult() {
+        public boolean getResult() {
             return result;
         }
 
-        public void setResult(int result) {
+        public void setResult(boolean result) {
             this.result = result;
         }
     }

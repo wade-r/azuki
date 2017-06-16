@@ -1,0 +1,28 @@
+# EqualsIgnoreCase
+match:
+  equalsIgnoreCase:
+    key1: hello
+    key2: world
+    key3: nah
+values:
+  - value:
+      key1: hello
+    result: false
+  - value:
+      key2: world
+    result: false
+  - value:
+      key1: hello
+      key2: world
+    result: false
+  - value:
+      key1: hello
+      key2: world
+      key3: nah
+    result: true
+  - value:
+      key1: hEllo
+      key2: world
+      key3: nah
+    result: true
+
