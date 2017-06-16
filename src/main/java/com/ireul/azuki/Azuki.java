@@ -1,8 +1,10 @@
 package com.ireul.azuki;
 
+import com.ireul.azuki.expressions.*;
 import com.ireul.azuki.expressions.base.Expression;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -12,6 +14,28 @@ import java.util.Map;
  */
 public class Azuki {
 
+    private static final HashMap<String, Class<? extends Expression>> EXPRESSIONS = new HashMap<>();
+
+    static {
+        EXPRESSIONS.put("all", AllExpression.class);
+        EXPRESSIONS.put("and", AllExpression.class);
+        EXPRESSIONS.put("any", AnyExpression.class);
+        EXPRESSIONS.put("or", AnyExpression.class);
+        EXPRESSIONS.put("none", NoneExpression.class);
+        EXPRESSIONS.put("not", NotExpression.class);
+        EXPRESSIONS.put("equals", EqualsExpression.class);
+        EXPRESSIONS.put("equalsIgnoreCase", EqualsIgnoreCaseExpression.class);
+        EXPRESSIONS.put("startsWith", StartsWithExpression.class);
+        EXPRESSIONS.put("startsWithIgnoreCase", StartsWithIgnoreCaseExpression.class);
+        EXPRESSIONS.put("endsWith", EndsWithExpression.class);
+        EXPRESSIONS.put("endsWithIgnoreCase", EndsWithIgnoreCaseExpression.class);
+        EXPRESSIONS.put("contains", ContainsExpression.class);
+        EXPRESSIONS.put("containsIgnoreCase", ContainsIgnoreCaseExpression.class);
+        EXPRESSIONS.put("pattern", PatternExpression.class);
+        EXPRESSIONS.put("regex", PatternExpression.class);
+        EXPRESSIONS.put("exists", ExistsExpression.class);
+    }
+
     /**
      * Create an {@link Expression} from given {@code Map} source
      *
@@ -19,6 +43,7 @@ public class Azuki {
      * @return {@link Expression}
      * @throws AzukiException if error occurred
      */
+    @SuppressWarnings("unchecked")
     public static Expression build(Object object) throws AzukiException {
         if (object == null) {
             throw new AzukiException(new IllegalArgumentException());
@@ -34,13 +59,12 @@ public class Azuki {
         if (!(entry.getKey() instanceof String)) {
             throw new AzukiException("key must be string");
         }
-        String key = (String) entry.getKey();
-        String name = key.substring(0, 1).toUpperCase() + key.substring(1);
-        String className = "com.ireul.azuki.expressions." + name + "Expression";
+        Class aClass = EXPRESSIONS.get(entry.getKey());
+        if (aClass == null) {
+            throw new AzukiException("Expression not supported: " + entry.getKey());
+        }
         try {
-            return (Expression) Class.forName(className).getConstructor(Object.class).newInstance(entry.getValue());
-        } catch (ClassNotFoundException e) {
-            throw new AzukiException("Unsupported expression: " + key);
+            return (Expression) aClass.getConstructor(Object.class).newInstance(entry.getValue());
         } catch (InvocationTargetException e) {
             if (e.getCause() instanceof AzukiException) {
                 throw (AzukiException) e.getCause();

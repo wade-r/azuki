@@ -1,0 +1,30 @@
+# Nested
+match:
+  not:
+    and:
+      - or:
+        - equals:
+            key2: world
+        - endsWithIgnoreCase:
+            key2: world
+      - startsWith:
+          key1: he
+      - regex:
+          key1: he[l]+lo
+values:
+  - value:
+      key1: hello
+      key2: worlD
+    result: false
+  - value:
+      key1: helllllo
+      key2: WorlD
+    result: false
+  - value:
+      key1: helllllo
+      key2: ThisWorlD
+    result: false
+  - value:
+      key1: hessswo
+      key2: ThisWorlD
+    result: true
