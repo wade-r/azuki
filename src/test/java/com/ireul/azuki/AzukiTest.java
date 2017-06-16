@@ -2,10 +2,11 @@ package com.ireul.azuki;
 
 import com.ireul.azuki.expressions.base.Expression;
 import org.junit.Test;
+import org.yaml.snakeyaml.Yaml;
 
-import java.util.HashMap;
+import java.io.InputStream;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author Ryan Wade
@@ -13,13 +14,19 @@ import static org.junit.Assert.assertTrue;
 public class AzukiTest {
 
     @Test
-    public void testBuild() throws AzukiException {
-        HashMap<String, Object> root = new HashMap<>();
-        HashMap<String, String> equals = new HashMap<>();
-        equals.put("Hello", "World");
-        root.put("equals", equals);
-        Expression expression = Azuki.build(root);
-        assertTrue(expression.validate(equals));
+    public void testAzuki() throws AzukiException {
+        for (int i = 0; i < 1; i++) {
+            String filename = "test-" + (1000 + i) + ".yml";
+            System.out.print("running file: " + filename + " [");
+            InputStream inputStream = AzukiTest.class.getResourceAsStream("/" + filename);
+            TestModel model = new Yaml().loadAs(inputStream, TestModel.class);
+            Expression expression = Azuki.build(model.getMatch());
+            for (TestModel.TestModelValue value : model.getValues()) {
+                System.out.print(".");
+                assertEquals(expression.validate(value.getValue()), value.getResult() == 1);
+            }
+            System.out.print("]\n");
+        }
     }
 
 }

@@ -1,0 +1,35 @@
+# Exists
+match:
+  all:
+    - exists:
+        key1: t
+        key2: y
+        key3: wo
+        key4: nah
+        key5: f
+values:
+  - value:
+      key1: 'hello'
+      key2: 'hello'
+      key3: 'hello'
+    result: 1
+  - value:
+      key1: 'hello'
+      key2: 'hello'
+      key3: 'hello'
+      key4: 'hello'
+    result: 0
+  - value:
+      key1: 'hello'
+      key2: 'hello'
+      key3: 'hello'
+      key4: 'hello'
+      key5: 'hello'
+    result: 0
+  - value:
+      key1: 'hello'
+      key2: 'hello'
+    result: 0
+  - value:
+      key2: 'hello'
+    result: 0
