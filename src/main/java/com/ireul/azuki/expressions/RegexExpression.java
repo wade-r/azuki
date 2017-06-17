@@ -1,16 +1,18 @@
 package com.ireul.azuki.expressions;
 
 import com.ireul.azuki.AzukiException;
-import com.ireul.azuki.expressions.base.EvaluationExpression;
+import com.ireul.azuki.EvaluationExpression;
 
 import java.util.Map;
 
 /**
+ * 'regex' expression
+ *
  * @author Ryan Wade
  */
-public class PatternExpression extends EvaluationExpression {
+public class RegexExpression extends EvaluationExpression {
 
-    public PatternExpression(Object object) throws AzukiException {
+    public RegexExpression(Object object) throws AzukiException {
         super(object);
     }
 

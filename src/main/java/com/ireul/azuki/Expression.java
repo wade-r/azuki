@@ -1,4 +1,4 @@
-package com.ireul.azuki.expressions.base;
+package com.ireul.azuki;
 
 import java.util.Map;
 
@@ -7,7 +7,7 @@ import java.util.Map;
  *
  * @author Ryan Wade
  */
-public abstract class Expression {
+public interface Expression {
 
     /**
      * Evaluate expression on target map
@@ -15,6 +15,6 @@ public abstract class Expression {
      * @param map target map
      * @return validation passed or not
      */
-    public abstract boolean validate(Map<String, String> map);
+    boolean validate(Map<String, String> map);
 
 }

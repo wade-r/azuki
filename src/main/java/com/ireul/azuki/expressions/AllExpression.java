@@ -1,13 +1,15 @@
 package com.ireul.azuki.expressions;
 
 import com.ireul.azuki.AzukiException;
-import com.ireul.azuki.expressions.base.CombinationExpression;
-import com.ireul.azuki.expressions.base.Expression;
+import com.ireul.azuki.CombinationExpression;
+import com.ireul.azuki.Expression;
 
 import java.util.Map;
 
 /**
- * Created by ryan on 2017/6/15.
+ * 'all' expression
+ *
+ * @author Ryan Wade
  */
 public class AllExpression extends CombinationExpression {
 

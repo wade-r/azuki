@@ -1,7 +1,6 @@
 package com.ireul.azuki;
 
 import com.ireul.azuki.expressions.*;
-import com.ireul.azuki.expressions.base.Expression;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
@@ -12,28 +11,39 @@ import java.util.Map;
  *
  * @author Ryan Wade
  */
+@SuppressWarnings("WeakerAccess")
 public class Azuki {
 
     private static final HashMap<String, Class<? extends Expression>> EXPRESSIONS = new HashMap<>();
 
     static {
-        EXPRESSIONS.put("all", AllExpression.class);
-        EXPRESSIONS.put("and", AllExpression.class);
-        EXPRESSIONS.put("any", AnyExpression.class);
-        EXPRESSIONS.put("or", AnyExpression.class);
-        EXPRESSIONS.put("none", NoneExpression.class);
-        EXPRESSIONS.put("not", NotExpression.class);
-        EXPRESSIONS.put("equals", EqualsExpression.class);
-        EXPRESSIONS.put("equalsIgnoreCase", EqualsIgnoreCaseExpression.class);
-        EXPRESSIONS.put("startsWith", StartsWithExpression.class);
-        EXPRESSIONS.put("startsWithIgnoreCase", StartsWithIgnoreCaseExpression.class);
-        EXPRESSIONS.put("endsWith", EndsWithExpression.class);
-        EXPRESSIONS.put("endsWithIgnoreCase", EndsWithIgnoreCaseExpression.class);
-        EXPRESSIONS.put("contains", ContainsExpression.class);
-        EXPRESSIONS.put("containsIgnoreCase", ContainsIgnoreCaseExpression.class);
-        EXPRESSIONS.put("pattern", PatternExpression.class);
-        EXPRESSIONS.put("regex", PatternExpression.class);
-        EXPRESSIONS.put("exists", ExistsExpression.class);
+        register("all", AllExpression.class);
+        register("and", AllExpression.class);
+        register("any", AnyExpression.class);
+        register("or", AnyExpression.class);
+        register("none", NoneExpression.class);
+        register("not", NotExpression.class);
+        register("equals", EqualsExpression.class);
+        register("equalsIgnoreCase", EqualsIgnoreCaseExpression.class);
+        register("startsWith", StartsWithExpression.class);
+        register("startsWithIgnoreCase", StartsWithIgnoreCaseExpression.class);
+        register("endsWith", EndsWithExpression.class);
+        register("endsWithIgnoreCase", EndsWithIgnoreCaseExpression.class);
+        register("contains", ContainsExpression.class);
+        register("containsIgnoreCase", ContainsIgnoreCaseExpression.class);
+        register("pattern", RegexExpression.class);
+        register("regex", RegexExpression.class);
+        register("exists", ExistsExpression.class);
+    }
+
+    /**
+     * Register a Expression class with name
+     *
+     * @param name            name of expression
+     * @param expressionClass expression class
+     */
+    public static void register(String name, Class<? extends Expression> expressionClass) {
+        EXPRESSIONS.put(name, expressionClass);
     }
 
     /**

@@ -68,7 +68,7 @@ If all Key-Value pairs passed, the expression returns true.
 * startsWithIgnoreCase
 * endsWith
 * endsWithIgnoreCase
-* pattern
+* regex
 * exists
 
 For `exists`, you can check both existence and non-existence

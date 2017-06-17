@@ -6,8 +6,10 @@ import java.util.Map;
 /**
  * @author Ryan Wade
  */
+@SuppressWarnings("unused WeakerAccess")
 public class TestModel {
 
+    @SuppressWarnings("unused")
     public static class TestModelValue {
 
         private Map<String, String> value;

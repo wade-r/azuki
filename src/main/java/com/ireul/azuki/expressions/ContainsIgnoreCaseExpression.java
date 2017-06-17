@@ -1,11 +1,13 @@
 package com.ireul.azuki.expressions;
 
 import com.ireul.azuki.AzukiException;
-import com.ireul.azuki.expressions.base.EvaluationExpression;
+import com.ireul.azuki.EvaluationExpression;
 
 import java.util.Map;
 
 /**
+ * 'containsIgnoreCase' expression
+ *
  * @author Ryan Wade
  */
 public class ContainsIgnoreCaseExpression extends EvaluationExpression {
