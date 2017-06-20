@@ -2,6 +2,14 @@
 
 [![Build Status](https://travis-ci.org/wade-r/azuki.svg?branch=master)](https://travis-ci.org/wade-r/azuki)
 
+```xml
+<dependency>
+  <groupId>com.ireul.azuki</groupId>
+  <artifactId>azuki</artifactId>
+  <version>1.1</version>
+</dependency>
+```
+
 Azuki is a simple Map evaluation tool
 
 # Example
