@@ -1,5 +1,7 @@
 # Azuki
 
+**Migrated to guoyk93/azuki https://github.com/guoyk93/azuki**
+
 [![Build Status](https://travis-ci.org/wade-r/azuki.svg?branch=master)](https://travis-ci.org/wade-r/azuki)
 
 ```xml
